@@ -12,9 +12,11 @@ export default function Footer() {
           {/* Column 1: Logo + description */}
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <span className="font-serif font-bold text-2xl tracking-wider">
-                ROYALE <span className="text-gold">PACKARD</span>
-              </span>
+              <img
+                src="/assets/uploads/WhatsApp-Image-2026-03-05-at-3.11.31-AM-1.jpeg"
+                alt="Royale Packard Logo"
+                className="h-20 w-auto object-contain"
+              />
             </div>
             <p className="font-sans-brand text-sm text-gold italic mb-4 tracking-wide">
               Plan Better. Design Better. Build Better.

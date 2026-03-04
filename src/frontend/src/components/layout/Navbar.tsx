@@ -55,9 +55,11 @@ export default function Navbar() {
           data-ocid="nav.link.1"
           onClick={() => setMobileOpen(false)}
         >
-          <span className="font-serif font-bold text-lg lg:text-xl tracking-wider text-brand-black hover:text-gold transition-colors duration-200">
-            ROYALE <span className="text-gold">PACKARD</span>
-          </span>
+          <img
+            src="/assets/uploads/WhatsApp-Image-2026-03-05-at-3.11.31-AM-1.jpeg"
+            alt="Royale Packard Logo"
+            className="h-12 lg:h-16 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}
