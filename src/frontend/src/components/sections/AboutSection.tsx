@@ -1,9 +1,36 @@
+import { Building2, Clock, Maximize2, Store, Users } from "lucide-react";
+
 const STATS = [
-  { value: "12+", label: "Years of Experience" },
-  { value: "150+", label: "Projects Delivered" },
-  { value: "2M+", label: "Sq Ft Developed" },
-  { value: "500+", label: "Satisfied Clients" },
-  { value: "40+", label: "Commercial Spaces" },
+  {
+    icon: Clock,
+    value: "2.5+",
+    unit: "Years",
+    label: "Years of Experience",
+  },
+  {
+    icon: Building2,
+    value: "50+",
+    unit: "Projects",
+    label: "Projects Delivered",
+  },
+  {
+    icon: Maximize2,
+    value: "1L+",
+    unit: "Sq Ft",
+    label: "Square Feet Delivered",
+  },
+  {
+    icon: Users,
+    value: "200+",
+    unit: "Clients",
+    label: "Satisfied Customers",
+  },
+  {
+    icon: Store,
+    value: "12+",
+    unit: "Spaces",
+    label: "Commercial Spaces",
+  },
 ];
 
 export default function AboutSection() {
@@ -35,10 +62,9 @@ export default function AboutSection() {
                 </strong>{" "}
                 is a premier builder and developer based in Delhi, offering
                 comprehensive end-to-end solutions in residential construction,
-                commercial development, and premium interior design. With over a
-                decade of expertise, we have established ourselves as a trusted
-                partner for homeowners, investors, and businesses across the
-                capital.
+                commercial development, and premium interior design. With deep
+                expertise, we have established ourselves as a trusted partner
+                for homeowners, investors, and businesses across the capital.
               </p>
               <p>
                 Our interior design division stands as a key differentiator — we
@@ -86,19 +112,32 @@ export default function AboutSection() {
           {/* Right: Stats */}
           <div>
             <div className="grid grid-cols-2 gap-px bg-charcoal/10">
-              {STATS.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={`bg-brand-cream p-7 group hover:bg-white transition-colors duration-250 ${
-                    i === 4 ? "col-span-2 sm:col-span-1" : ""
-                  }`}
-                >
-                  <div className="stat-number mb-2">{stat.value}</div>
-                  <div className="font-sans-brand text-xs font-medium tracking-wider uppercase text-charcoal/50 leading-tight">
-                    {stat.label}
+              {STATS.map((stat, i) => {
+                const Icon = stat.icon;
+                return (
+                  <div
+                    key={stat.label}
+                    className={`bg-brand-cream p-7 group hover:bg-white transition-colors duration-250 ${
+                      i === 4 ? "col-span-2 sm:col-span-1" : ""
+                    }`}
+                  >
+                    {/* Icon */}
+                    <div className="mb-3">
+                      <Icon className="text-gold" size={20} strokeWidth={1.5} />
+                    </div>
+                    {/* Value */}
+                    <div className="stat-number mb-1">{stat.value}</div>
+                    {/* Unit */}
+                    <div className="font-sans-brand text-xs font-semibold tracking-wider uppercase text-gold mb-1">
+                      {stat.unit}
+                    </div>
+                    {/* Label */}
+                    <div className="font-sans-brand text-xs font-medium tracking-wider uppercase text-charcoal/50 leading-tight">
+                      {stat.label}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Decorative quote block */}

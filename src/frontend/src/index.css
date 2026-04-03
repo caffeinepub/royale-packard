@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ROYALE PACKARD — Brand Design System
+   Palette: Cream / Matte Black / Elegant Gold
+   ============================================================ */
+
+/* --- Self-hosted fonts --- */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay[wght].woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree[wght].woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    /* ── Core Brand Tokens ── */
+    /* Cream background: oklch(0.951 0.018 80) ≈ #F5F1E8 */
+    --rp-cream: 0.951 0.018 80;
+    /* Matte black: oklch(0.155 0 0) ≈ #111111 */
+    --rp-black: 0.155 0 0;
+    /* Gold accent: oklch(0.718 0.088 72) ≈ #C6A75E */
+    --rp-gold: 0.718 0.088 72;
+    /* Deep charcoal: oklch(0.295 0.006 280) ≈ #2B2B2B */
+    --rp-charcoal: 0.295 0.006 280;
+    /* Soft white: oklch(0.98 0 0) */
+    --rp-white: 0.98 0 0;
+    /* Light gray for body text on dark bg */
+    --rp-gray-light: 0.72 0 0;
+    /* Card/section soft: oklch(0.975 0.008 80) */
+    --rp-card: 0.975 0.008 80;
+    /* Gold muted: oklch(0.85 0.04 72) */
+    --rp-gold-light: 0.85 0.04 72;
+    /* Dark card on black bg */
+    --rp-dark-card: 0.185 0 0;
+
+    /* ── shadcn semantic tokens mapped to brand ── */
+    --background: var(--rp-cream);
+    --foreground: var(--rp-charcoal);
+    --card: var(--rp-card);
+    --card-foreground: var(--rp-charcoal);
+    --popover: var(--rp-white);
+    --popover-foreground: var(--rp-charcoal);
+    --primary: var(--rp-gold);
+    --primary-foreground: var(--rp-black);
+    --secondary: var(--rp-cream);
+    --secondary-foreground: var(--rp-charcoal);
+    --muted: var(--rp-gold-light);
+    --muted-foreground: 0.55 0 0;
+    --accent: var(--rp-gold);
+    --accent-foreground: var(--rp-black);
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: var(--rp-white);
+    --border: 0.88 0.012 80;
+    --input: 0.88 0.012 80;
+    --ring: var(--rp-gold);
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: var(--rp-gold);
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: var(--rp-black);
+    --sidebar-foreground: var(--rp-white);
+    --sidebar-primary: var(--rp-gold);
+    --sidebar-primary-foreground: var(--rp-black);
+    --sidebar-accent: var(--rp-dark-card);
+    --sidebar-accent-foreground: var(--rp-gold);
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: var(--rp-gold);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+/* ── Custom utility classes ── */
+@layer utilities {
+  .font-serif {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  .font-sans-brand {
+    font-family: "Figtree", system-ui, sans-serif;
+  }
+
+  .text-gold {
+    color: oklch(var(--rp-gold));
+  }
+
+  .text-cream {
+    color: oklch(var(--rp-cream));
+  }
+
+  .text-brand-black {
+    color: oklch(var(--rp-black));
+  }
+
+  .text-charcoal {
+    color: oklch(var(--rp-charcoal));
+  }
+
+  .text-gray-light {
+    color: oklch(var(--rp-gray-light));
+  }
+
+  .bg-brand-cream {
+    background-color: oklch(var(--rp-cream));
+  }
+
+  .bg-brand-black {
+    background-color: oklch(var(--rp-black));
+  }
+
+  .bg-brand-gold {
+    background-color: oklch(var(--rp-gold));
+  }
+
+  .bg-dark-card {
+    background-color: oklch(var(--rp-dark-card));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--rp-gold));
+  }
+
+  .gold-line {
+    width: 3rem;
+    height: 2px;
+    background-color: oklch(var(--rp-gold));
+    display: block;
+  }
+
+  .section-heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  /* Larger editorial variant for the first h2 a visitor encounters */
+  .section-heading-xl {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .stat-number {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.75rem, 4.5vw, 4rem);
+    font-weight: 700;
+    color: oklch(var(--rp-gold));
+    line-height: 1;
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  /* Hover lift for cards */
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Gold gradient line */
+  .gold-gradient-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(var(--rp-gold)),
+      transparent
+    );
+  }
+
+  /* Before/After Slider */
+  .before-after-container {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    cursor: col-resize;
+  }
+
+  .before-after-slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: oklch(var(--rp-gold));
+    cursor: col-resize;
+    z-index: 10;
+  }
+
+  .before-after-slider-handle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: oklch(var(--rp-gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Testimonial slider */
+  .testimonial-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: oklch(var(--rp-gold-light));
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .testimonial-dots .dot.active {
+    background: oklch(var(--rp-gold));
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* WhatsApp float button pulse */
+  @keyframes whatsapp-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+  }
+
+  .whatsapp-pulse {
+    animation: whatsapp-pulse 2.5s ease infinite;
+  }
+
+  /* Gold shimmer on hover */
+  @keyframes gold-shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* Nav link hover */
+  .nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: oklch(var(--rp-gold));
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Project card overlay */
+  .project-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .project-card:hover .project-card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  }
+
+  .project-card-desc {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-card:hover .project-card-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
